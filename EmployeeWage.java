@@ -7,13 +7,15 @@ public class EmployeeWage {
 		int IS_PART_TIME = 2;
 		int WAGE_PER_HR = 20;
 		int DAYS_IN_MONTH = 20;
+		int MAX_HRS = 100;
 		//Variables
 		int empHrs = 0;
 		int dailyWage = 0;
 		int days = 1;
+		int hours = 0;
 		int monthlyWage = 0;
 		//Computation
-		while (days <= DAYS_IN_MONTH) {
+		while (days <= DAYS_IN_MONTH && hours != MAX_HRS) {
 			int empCheck = (int) Math.floor(Math.random() *10) % 3;
 			switch (empCheck)
 			{
@@ -31,6 +33,7 @@ public class EmployeeWage {
 			}
 			System.out.println("Day "+days);
 			days = days+1;
+			hours = hours+empHrs;
 			dailyWage = empHrs * WAGE_PER_HR;
 			System.out.println("Daily Employee Wage "+dailyWage);
 			monthlyWage = monthlyWage+empHrs*WAGE_PER_HR;
