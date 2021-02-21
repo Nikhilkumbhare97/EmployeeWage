@@ -6,25 +6,35 @@ public class EmployeeWage {
 		int IS_FULL_TIME = 1;
 		int IS_PART_TIME = 2;
 		int WAGE_PER_HR = 20;
+		int DAYS_IN_MONTH = 20;
 		//Variables
 		int empHrs = 0;
 		int dailyWage = 0;
+		int days = 1;
+		int monthlyWage = 0;
 		//Computation
-		int empCheck = (int) Math.floor(Math.random() *10) % 3;
-		switch (empCheck)
-		{
-			case 1:
-				System.out.println("Employee is Present Full Time");
-				empHrs=8;
-				break;
-			case 2:
-				System.out.println("Employee is Present Part Time");
-				empHrs=4;
-				break;
-			default:
-				System.out.println("Employee is Absent");
-				empHrs=0;
-		}dailyWage = empHrs * WAGE_PER_HR;
-		System.out.println("Daily Employee Wage "+dailyWage);
+		while (days <= DAYS_IN_MONTH) {
+			int empCheck = (int) Math.floor(Math.random() *10) % 3;
+			switch (empCheck)
+			{
+				case 1:
+					//Employee is Full Time
+					empHrs=8;
+					break;
+				case 2:
+					//Employee is Part Time
+					empHrs=4;
+					break;
+				default:
+					//Employee is Absent
+					empHrs=0;
+			}
+			System.out.println("Day "+days);
+			days = days+1;
+			dailyWage = empHrs * WAGE_PER_HR;
+			System.out.println("Daily Employee Wage "+dailyWage);
+			monthlyWage = monthlyWage+empHrs*WAGE_PER_HR;
+		}
+		System.out.println("Monthly Employee Wage "+monthlyWage);
 	}
 }
